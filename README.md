@@ -28,6 +28,6 @@ parnership(**partnerID**,projectID\*,userID\*)
 
 projectsource(**proSourceID**,projectID\*,inspirationID\*)
 
-keyword(**keywordID**,inspirationID\*,keyword,typeID\*)
+keyword(**keyword**,inspirationID\*,typeID\*)
 
 fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
