@@ -12,7 +12,7 @@
 - [ ] 页面实现与数据库的链接(6.9)
 - [ ] 页面美化(6.14)
 - [ ] 撰写报告书(6.18)
-## 逻辑设计
+## 设计过程
 ### 数据库逻辑结构设计
 user(**userID**,userName,contribution,password,logintime)
 
@@ -31,3 +31,30 @@ projectsource(**proSourceID**,projectID\*,inspirationID\*)
 keyword(**keyword**,inspirationID\*,typeID\*)
 
 fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
+
+### 数据库物理结构设计
+
+请在word文档中设计，命名为“物理结构.docx”上传。
+
+### 开发文档
+
+#### 数据库设计
+|变量名|所属表名|变量类型|说明|
+|---|---|---|---|
+
+#### 页面后端设计
+|变量名|作用域|变量类型|说明|
+|---|---|---|---|
+
+|函数名|作用域|返回值|说明|
+|---|---|---|---|
+
+|session对象|说明|
+|---|---|
+
+#### 页面前端设计
+|css对象|说明|
+|---|---|
+
+|容器对象名|说明|
+|---|---|
