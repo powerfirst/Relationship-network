@@ -20,10 +20,10 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `evaluation`;
 CREATE TABLE `evaluation` (
-  `evaluationID` int(15) NOT NULL,
-  `inspirationID*` int(15) NOT NULL,
+  `evaluationID` varchar(15) NOT NULL,
+  `inspirationID*` varchar(15) NOT NULL,
   `star` int(1) NOT NULL,
-  `observerID` int(15) NOT NULL,
+  `userID` varchar(15) NOT NULL,
   `evaluateTime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `evaluationNote` varchar(255) NOT NULL,
   PRIMARY KEY (`evaluationID`)
@@ -38,8 +38,8 @@ CREATE TABLE `evaluation` (
 -- ----------------------------
 DROP TABLE IF EXISTS `fruit`;
 CREATE TABLE `fruit` (
-  `fruitID` int(15) NOT NULL,
-  `projectID` int(15) NOT NULL,
+  `fruitID` varchar(15) NOT NULL,
+  `projectID` varchar(15) NOT NULL,
   `fruitLink` varchar(255) NOT NULL,
   `PublishTime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`fruitID`)
@@ -54,11 +54,11 @@ CREATE TABLE `fruit` (
 -- ----------------------------
 DROP TABLE IF EXISTS `inspiration`;
 CREATE TABLE `inspiration` (
-  `inspirationID` int(15) NOT NULL,
-  `sourceID` int(15) NOT NULL,
-  `citeTimes` int(255) NOT NULL DEFAULT '0',
+  `inspirationID` varchar(15) NOT NULL,
+  `sourceID` varchar(15),
+  `citeTimes` int NOT NULL DEFAULT '0',
   `content` varchar(255) NOT NULL,
-  `typeID*` int(15) NOT NULL,
+  `typeID` int NOT NULL,
   PRIMARY KEY (`inspirationID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -71,9 +71,9 @@ CREATE TABLE `inspiration` (
 -- ----------------------------
 DROP TABLE IF EXISTS `keyword`;
 CREATE TABLE `keyword` (
-  `keyword` varchar(5) NOT NULL,
-  `inspirationID` int(15) NOT NULL,
-  `typeID` int(15) NOT NULL
+  `keyword` varchar(25) NOT NULL,
+  `inspirationID` varchar(15) NOT NULL,
+  `typeID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -85,9 +85,9 @@ CREATE TABLE `keyword` (
 -- ----------------------------
 DROP TABLE IF EXISTS `partner`;
 CREATE TABLE `partner` (
-  `partnerID` int(15) NOT NULL,
-  `userID` int(15) NOT NULL,
-  `projectID*` int(15) NOT NULL,
+  `partnerID` varchar(15) NOT NULL,
+  `userID` varchar(15) NOT NULL,
+  `projectID*` varchar(15) NOT NULL,
   PRIMARY KEY (`partnerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -100,7 +100,7 @@ CREATE TABLE `partner` (
 -- ----------------------------
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
-  `projectID` int(15) NOT NULL,
+  `projectID` varchar(15) NOT NULL,
   `,circleTime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `projectLink` varchar(255) NOT NULL,
   PRIMARY KEY (`projectID`)
@@ -115,9 +115,9 @@ CREATE TABLE `project` (
 -- ----------------------------
 DROP TABLE IF EXISTS `projectsource`;
 CREATE TABLE `projectsource` (
-  `proSourceID` int(15) NOT NULL,
-  `inspirationID*` int(15) NOT NULL,
-  `projectID*` int(15) NOT NULL,
+  `proSourceID` varchar(15) NOT NULL,
+  `inspirationID` varchar(15),
+  `projectID` varchar(15) NOT NULL,
   PRIMARY KEY (`proSourceID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -131,7 +131,7 @@ CREATE TABLE `projectsource` (
 DROP TABLE IF EXISTS `type`;
 CREATE TABLE `type` (
   `typeID` int(15) NOT NULL,
-  `typeNAME` varchar(10) NOT NULL,
+  `typeName` varchar(10) NOT NULL,
   PRIMARY KEY (`typeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -144,11 +144,11 @@ CREATE TABLE `type` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userID` int(15) NOT NULL,
-  `userNAME` varchar(10) NOT NULL,
+  `userID` varchar(15) NOT NULL,
+  `userName` varchar(15) NOT NULL,
   `contribution` varchar(255) DEFAULT NULL,
   `password` varchar(25) NOT NULL,
-  `logintime` time NOT NULL,
+  `loginTime` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
