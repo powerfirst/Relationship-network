@@ -20,11 +20,11 @@ type(**typeID**,typeName)
 
 inspiration(**inspirationID**,sourceID,citeTimes,content,typeID\*)
 
-evaluation(**evaluationID**,inspirationID\*,evaluateTime,star,evaluationNote)
+evaluation(**evaluationID**,inspirationID\*,evaluateTime,star,evaluationNote,userID*)
 
 project(**projectID**,circleTime,projectLink)
 
-parnership(**partnerID**,projectID\*,userID\*)
+partnership(**partnerID**,projectID\*,userID\*)
 
 projectsource(**proSourceID**,projectID\*,inspirationID\*)
 
@@ -41,6 +41,7 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 #### 数据库设计
 |变量名|所属表名|变量类型|说明|
 |---|---|---|---|
+|userID|user,evaluation,partnership|varchar(15)|用户名|
 
 #### 页面后端设计
 |变量名|作用域|变量类型|说明|
