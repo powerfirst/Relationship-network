@@ -1,6 +1,6 @@
 # 灵感分享站
 ## 时间安排
-- [ ] 数据流图(6.4)
+- [x] 数据流图(6.4)
 - [ ] 数据字典(6.4)
 - [ ] 系统结构(6.4)
 - [ ] 功能结构图(6.4)
@@ -56,6 +56,22 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 #### 页面前端设计
 |css对象|说明|
 |---|---|
+|backgroundImg|index页面“为灵感赋能”|
+|indexBackground|index页面背景|
+|loginBox|登录框盒子|
+|eachRow|登录框每一行的布局|
+|inputBox|输入框textbox|
+|hint|输入框左侧提示label|
+|loginButton|登录&注册按钮|
+|headStyle|各网页的顶部|
+|headFont|各网页顶部的文字|
+|profilePlace1|profile页主布局|
+|profilePlace2|profile页左侧（个人资料）布局|
+|profilePlace3|profile页个人资料行布局|
+|profileIcon|profile页头像布局|
+|inspirationUI|inspiration页主布局|
+|inspirationContent|inspiration页gridview(用于展示inspiration)|
+|buttonStyle|inspiration页自动生成的按钮|
 
 |容器对象名|说明|
 |---|---|
