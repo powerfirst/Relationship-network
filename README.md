@@ -72,6 +72,7 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 |inspirationUI|inspiration页主布局|
 |inspirationContent|inspiration页gridview(用于展示inspiration)|
 |buttonStyle|inspiration页自动生成的按钮|
+|detailUI|inspiration_detail页主布局|
 
 |容器对象名|说明|
 |---|---|
