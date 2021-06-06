@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="_Default" %>
+
 
 <!DOCTYPE html>
 
@@ -8,6 +9,7 @@
     <title></title>
     <link type="text/css" rel="styleSheet"  href="StyleSheet.css" />
 </head>
+
 <body>
     <form id="form1" runat="server" class="indexBackground" style="background-image:url(img/backgroundimg.jpg);background-size:contain">
         <div class="backgroundImg" style="background-image:url(img/为灵感赋能.png)"></div>
@@ -23,8 +25,8 @@
             <br />
             <br />
             <div class="eachRow" style="justify-content:space-around;width:60%">
-                <asp:button ID="login" runat="server" CssClass="loginButton"  Text="登录"></asp:button>
-                <asp:button ID="logup" runat="server" CssClass="loginButton"  Text="注册"></asp:button>
+                <asp:button ID="login" runat="server" CssClass="loginButton"  Text="登录" OnClick="login_Click" ></asp:button>
+                <asp:button ID="logup" runat="server" CssClass="loginButton"  Text="注册" OnClick="logup_Click" ></asp:button>
             </div>
         </div>
         <br />
