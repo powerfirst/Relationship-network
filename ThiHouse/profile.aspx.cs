@@ -31,15 +31,14 @@ public partial class _Default : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@uid", Session["userid"].ToString());
             cn.Open();
             MySqlDataReader rd = cmd.ExecuteReader();
-            if (rd.HasRows)
+            try
             {
                 rd.Read();
                 averagestar.Text = rd.GetString(1);
                 totalstar.Text = rd.GetString(0);
                 projecttotal.Text = rd.GetString(2);
             }
-            else
-            {
+            catch {
                 averagestar.Text = "0";
                 totalstar.Text = "0";
                 projecttotal.Text = "0";

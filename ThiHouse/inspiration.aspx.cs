@@ -18,7 +18,6 @@ public partial class _Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             MySqlConnection cn = new MySqlConnection();
-            //cn.ConnectionString = Session["cnString"].ToString();
             cn.ConnectionString= "server=localhost;user id=root;password=hiver020802;database=thihouse";
             MySqlDataAdapter da = new MySqlDataAdapter("SELECT * FROM keyword",cn);
             cn.Open();
@@ -36,7 +35,7 @@ public partial class _Default : System.Web.UI.Page
                 int picknum =(int)( i * Math.Floor(tot_cmd/10.0)+ ran.Next(0,(int)Math.Floor(tot_cmd/10.0)));
                 btn[i].Text = ds.Tables["keyword"].Rows[picknum][0].ToString();
                 PlaceHolder1.Controls.Add(btn[i]);
-                btn[i].CssClass = "buttonStyle";
+                btn[i].CssClass = "bt";
             }
         }
     }

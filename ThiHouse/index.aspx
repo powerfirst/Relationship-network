@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form id="form1" runat="server" class="indexBackground" style="background-image:url(img/backgroundimg.jpg);background-size:contain">
+    <form id="form1" runat="server" class="indexBackground" style="background-image:url(img/backgroundimg.jpg);background-size:contain;text-align:center">
         <div class="backgroundImg" style="background-image:url(img/为灵感赋能.png)"></div>
         <div class="loginBox">
             <div class="eachRow">
