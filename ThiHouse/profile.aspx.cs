@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+
 public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -15,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
         {
             MySqlConnection cn = new MySqlConnection();
             cn.ConnectionString = Session["cnString"].ToString();
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT inspirationName AS 名称,typeName AS 类型, CONCAT(citeTimes,'次被引') AS 被引次数 , CONCAT('★',FORMAT(AVG(star),1)) FROM inspiration,type,evaluation WHERE inspiration.typeID = type.typeID AND inspiration.userID=@uid AND inspiration.inspirationID = evaluation.inspirationID GROUP BY inspiration.inspirationID", cn);
+            MySqlDataAdapter da = new MySqlDataAdapter("SELECT inspiration.inspirationID,inspirationName AS 名称,typeName AS 类型, CONCAT(citeTimes,'次被引') AS 被引次数 , CONCAT('★',FORMAT(AVG(star),1)) FROM inspiration,type,evaluation WHERE inspiration.typeID = type.typeID AND inspiration.userID=@uid AND inspiration.inspirationID = evaluation.inspirationID GROUP BY inspiration.inspirationID", cn);
             da.SelectCommand.Parameters.AddWithValue("@uid", Session["userid"].ToString());
             cn.Open();
             DataSet ds = new DataSet();
@@ -62,7 +63,21 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void gridview1_RowCreated(object sender, GridViewRowEventArgs e)
+
+
+    protected void gridview1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        e.Row.Cells[0].Visible = false;
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Attributes.Add("onmouseover", "currentcolor=this.style.backgroundColor;this.style.backgroundColor='lightgray';");
+            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=currentcolor;");
+            e.Row.Attributes.Add("onclick", "this.style.backgroundColor='gray';rectClick(event);window.location.href='inspiration_detail.aspx';");
+        }
+
+    }
+
+    protected void gridview2_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
@@ -72,13 +87,4 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void gridview2_RowCreated(object sender, GridViewRowEventArgs e)
-    {
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            e.Row.Attributes.Add("onmouseover", "currentcolor=this.style.backgroundColor;this.style.backgroundColor='lightgray';");
-            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=currentcolor;");
-            e.Row.Attributes.Add("onclick", "this.style.backgroundColor='gray';");
-        }
-    }
 }

@@ -7,13 +7,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="text/css" rel="styleSheet"  href="StyleSheet.css" />
     <title></title>
+    <script type="text/javascript">
+      function rectClick(event) {
+        //获取相对于当前所指向对象的位置坐标
+          Z = event.pageY-255;
+          document.cookie = "inspiration_id=" + (parseInt(Z / 100) + 1);
+      }
+    </script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    
+    <form id="form1" runat="server" >
         <div class="headStyle">
             <span class="headFont"> Profile</span>
         </div>
-        <div class="profilePlace1">
+        <div class="profilePlace1" style="position:absolute;top:120px;">
             <div class="profilePlace2" style="width:40%">
                 <asp:Image ID="Image1" runat="server" ImageUrl="img/backgroundimg.jpg" CssClass="profileIcon"/>
                 <div class="profilePlace3">
@@ -35,14 +43,14 @@
                     <asp:Label ID="teamcount" runat="server" Text="12"></asp:Label>
                 </div>
             </div>
-            <div style="width:60%">
-                <div class="profilePlace2" style="width:100%">
+            <div style="width:60%;">
+                <div class="profilePlace2" style="width:100%;position:absolute;top:75px;" >
                     <span style="font-weight:bold;font-size:28px;font-family:'Times New Roman', Times, serif">My inspiration:</span><br />
-                    <asp:GridView ID="gridview1" runat="server" GridLines="Horizontal" ShowHeader="false" CssClass="gridviewStyle" RowStyle-Height="100px" OnRowCreated="gridview1_RowCreated">
+                    <asp:GridView ID="gridview1"  runat="server" GridLines="Horizontal" ShowHeader="false" CssClass="gridviewStyle" RowStyle-Height="100px" OnRowDataBound="gridview1_RowDataBound" >
                     </asp:GridView><br />
                     
                     <span style="font-weight:bold;font-size:28px;font-family:'Times New Roman', Times, serif">My project:</span><br />
-                    <asp:GridView ID="gridview2" runat="server" GridLines="Horizontal" ShowHeader="false" CssClass="gridviewStyle" RowStyle-Height="100px" OnRowCreated="gridview2_RowCreated"></asp:GridView>
+                    <asp:GridView ID="gridview2" runat="server" GridLines="Horizontal" ShowHeader="false" CssClass="gridviewStyle" RowStyle-Height="100px" OnRowDataBound="gridview2_RowDataBound"></asp:GridView>
                 </div>
             </div>
         </div>
