@@ -52,6 +52,7 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 
 |session对象|说明|
 |---|---|
+|inspiration_id|从inspiration向inspiration_detail传递|
 
 #### 页面前端设计
 |css对象|说明|
@@ -76,3 +77,15 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 
 |容器对象名|说明|
 |---|---|
+### 你的任务：
+#### inspirationDetail页面
+1. 获取session的inspiration_id属性
+2. 使用DataAdapter从inspiration表中根据session获取序号，提取userID、灵感名、灵感内容、使用该灵感进行的项目
+3. 将userID、灵感名、灵感内容放在gridview中显示。（请注意gridview的ID）
+
+#### groupList页面
+1. 新建Web窗体groupList.aspx
+2. 在窗体上拖入一个gridview控件，设置gridview每页显示6条、有“选择”按钮；不需要改变其样式
+3. 编写GridRefresh函数，对Gridview进行刷新
+4. 使用DataAdapter根据session中的inspiration_id获取相对应的项目名称、项目人数，显示在步骤2中新建的gridview中
+5. 对选择按钮添加事件：redirect到group_manage.aspx
