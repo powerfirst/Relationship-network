@@ -14,7 +14,7 @@
             <span class="headFont"> Profile</span>
         </div>
         <div class="profilePlace1">
-            <div class="profilePlace2">
+            <div class="profilePlace2" style="width:40%">
                 <asp:Image ID="Image1" runat="server" ImageUrl="img/backgroundimg.jpg" CssClass="profileIcon"/>
                 <div class="profilePlace3">
                     <span style="font-weight:bold">UserName:</span>
@@ -36,11 +36,13 @@
                 </div>
             </div>
             <div style="width:60%">
-                <div class="profilePlace2">
-                    <span style="font-weight:bold">My group:</span><br />
-                    <asp:GridView ID="gridview1" runat="server"></asp:GridView>
-                    <span style="font-weight:bold">My project:</span><br />
-                    <asp:GridView ID="gridview2" runat="server"></asp:GridView>
+                <div class="profilePlace2" style="width:100%">
+                    <span style="font-weight:bold;font-size:28px;font-family:'Times New Roman', Times, serif">My inspiration:</span><br />
+                    <asp:GridView ID="gridview1" runat="server" GridLines="Horizontal" ShowHeader="false" CssClass="gridviewStyle" RowStyle-Height="100px" OnRowCreated="gridview1_RowCreated">
+                    </asp:GridView><br />
+                    
+                    <span style="font-weight:bold;font-size:28px;font-family:'Times New Roman', Times, serif">My project:</span><br />
+                    <asp:GridView ID="gridview2" runat="server" GridLines="Horizontal" ShowHeader="false" CssClass="gridviewStyle" RowStyle-Height="100px" OnRowCreated="gridview2_RowCreated"></asp:GridView>
                 </div>
             </div>
         </div>

@@ -16,11 +16,11 @@
         <div class="loginBox">
             <div class="eachRow">
                 <asp:label ID="label1" runat="server" CssClass="hint">用户名：</asp:label>
-                <asp:textbox ID="buttonAccount" runat="server" CssClass="inputBox"  ></asp:textbox>
+                <asp:textbox ID="textAccount" runat="server" CssClass="inputBox"  ></asp:textbox>
             </div>
             <div class="eachRow">
                 <asp:label ID="label2" runat="server" CssClass="hint">密码：</asp:label>&nbsp;&nbsp;&nbsp;
-                <asp:textbox ID="buttonPassword" runat="server" CssClass="inputBox"></asp:textbox>
+                <asp:textbox ID="textPassword" runat="server" CssClass="inputBox" TextMode="Password"></asp:textbox>
             </div>
             <br />
             <br />

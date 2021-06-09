@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 public partial class _Default : System.Web.UI.Page
 {
