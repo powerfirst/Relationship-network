@@ -85,7 +85,12 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 
 #### groupList页面
 1. 新建Web窗体groupList.aspx
-2. 在窗体上拖入一个gridview控件，设置gridview每页显示6条、有“选择”按钮；不需要改变其样式
+2. 在窗体上拖入一个gridview控件，设置gridview每页显示6条；不需要改变其样式
 3. 编写GridRefresh函数，对Gridview进行刷新
 4. 使用DataAdapter根据session中的inspiration_id获取相对应的项目名称、项目人数，显示在步骤2中新建的gridview中
 5. 对选择按钮添加事件：redirect到group_manage.aspx
+
+### 心得
+
+1. C#的session是基于服务器的，js的session是浏览器上的，因此如果需要js传参给C#，应当将js存为cookie,再用`string inspiration_id = HttpContext.Current.Request.Cookies["inspiration_id"].Value;`访问
+2. js返回的坐标偏移量offsetX是相对于最近的父容器的。
