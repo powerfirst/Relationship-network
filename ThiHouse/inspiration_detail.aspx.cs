@@ -10,10 +10,12 @@ using System.Configuration;
 
 public partial class _Default : System.Web.UI.Page
 {
+    int tot_comments;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            //获取inspiration_id
             string inspiration_id = HttpContext.Current.Request.Cookies["inspiration_id"].Value;
             int idtrans = 0;
             for (int i = 0; i < inspiration_id.Length; i++) { idtrans *= 10; idtrans += (inspiration_id[i] - '0'); }
@@ -25,8 +27,15 @@ public partial class _Default : System.Web.UI.Page
             DataSet ds = new DataSet();
             da.Fill(ds, "my inspiration");
             cn.Close();
-            Response.Write(ds.Tables["my inspiration"].Rows[idtrans - 1][0].ToString());//获取inspiration_id
+            Response.Write(ds.Tables["my inspiration"].Rows[idtrans - 1][0].ToString());
             
+        }
+    }
+
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.Cells[0].Text.Length > 15) {
+            e.Row.Cells[0].Text = (e.Row.Cells[0].Text).Substring(0, 15) +"...";
         }
     }
 }

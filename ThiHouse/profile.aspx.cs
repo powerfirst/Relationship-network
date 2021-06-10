@@ -45,8 +45,8 @@ public partial class _Default : System.Web.UI.Page
             }
             cn.Close();
             cmd.CommandText = "SELECT COUNT(partnerID) FROM partner WHERE partner.userID=@uid;";
-            cn.Open();
             rd.Close();
+            cn.Open();
             MySqlDataReader rd2 = cmd.ExecuteReader();
             if (rd2.HasRows)
             {

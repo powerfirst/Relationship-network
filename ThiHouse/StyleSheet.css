@@ -142,8 +142,8 @@
 
 .detailUI {
     display:flex;
-    flex-direction:row;
-    justify-content:center;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 .teamNum {
@@ -197,3 +197,10 @@
     .bt:hover {
         transform: scale(1.1);
     }
+
+.starsize {
+    height:28px;
+    width:28px;
+    border:none;
+    outline:none;
+}
