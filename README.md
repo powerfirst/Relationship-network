@@ -80,7 +80,7 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 ### 你的任务：
 #### inspirationDetail页面
 1. `ds.Tables["my inspiration"].Rows[idtrans - 1][0].ToString()`为本页面需要展示的inspirationID.
-2. 使用DataAdapter从inspiration表中根据session获取序号，提取userID、灵感名、灵感内容、使用该灵感进行的项目（按照stars进行排名，选择最多前3名进行显示，显示于表中hyperlink上，控件名及UI将于6.10下午之前给出）
+2. 使用DataAdapter根据得到的inspirationID为关键字，从涉及的表中提取userID、灵感名、灵感内容、评价、使用该灵感进行的项目（按照stars进行排名，选择最多前3名进行显示，显示于表中hyperlink上，控件名及UI将于6.10下午之前给出）
 3. 将userID、灵感名、灵感内容、来源灵感名放在gridview中显示。（请注意gridview的ID，具体见UI布局）
 
 #### groupList页面
@@ -93,12 +93,13 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 ### 剩余任务：
 1. inspirationDetail页面UI布局（6.10下午之前）
 2. logup页面设计
-3. group_manage页面设计
-4. inspirationDetail用户交互
-5. 将sourceID单独出来一个表
-6. 在user表中新增username属性
-7. 对password加密存储
-8. 文档撰写
+3. inspiration_upload页面设计
+4. group_manage页面设计
+5. inspirationDetail用户交互
+6. 将sourceID单独出来一个表
+7. 在user表中新增username属性
+8. 对password加密存储
+9. 文档撰写
 
 ### 心得
 
