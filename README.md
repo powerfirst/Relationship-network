@@ -52,7 +52,14 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 
 |session对象|说明|
 |---|---|
-|inspiration_id|从inspiration向inspiration_detail传递|
+|inspiration_num|这是一个js的cookie，用于profile→inspiration_detail传递选定项|
+|inspiration_id|字如其名|
+|searchPar|查找变量|
+|searchOrder|查找命令|
+|upload_title|上传失败的标题|
+|upload_context|上传失败的文本|
+|upload_source|上传失败的评价来源|
+|upload_type|上传失败的类型|
 
 #### 页面前端设计
 |css对象|说明|
@@ -72,16 +79,21 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 |profileIcon|profile页头像布局|
 |inspirationUI|inspiration页主布局|
 |inspirationContent|inspiration页gridview(用于展示inspiration)|
-|buttonStyle|inspiration页自动生成的按钮|
 |detailUI|inspiration_detail页主布局|
+|teamNum|inspiration_detail页项目代码|
+|descriptionbox|inspiration_detail页的description|
+|gridviewStyle|gridview样式（动态效果需要通过rowdatabound+js实现）|
+|bt|通用button|
+|starsize|inspiration_deatil页“五角星”形状的大小|
+|textboxstyle|通用textbox|
 
 |容器对象名|说明|
 |---|---|
 ### 你的任务：
-#### inspirationDetail页面
-1. `ds.Tables["my inspiration"].Rows[idtrans - 1][0].ToString()`为本页面需要展示的inspirationID.
-2. 使用DataAdapter根据得到的inspirationID为关键字，从涉及的表中提取userID、灵感名、灵感内容、评价、使用该灵感进行的项目（按照stars进行排名，选择最多前3名进行显示，显示于表中hyperlink上，控件名及UI将于6.10下午之前给出）
-3. 将userID、灵感名、灵感内容、来源灵感名放在gridview中显示。（请注意gridview的ID，具体见UI布局）
+
+#### inspiration_submit页面后端
+
+详细见cs文件中的注释。
 
 #### groupList页面
 1. 新建Web窗体groupList.aspx
@@ -91,13 +103,9 @@ fruit(**fruitID**,projectID\*,fruitLink,PublishTime)
 5. 对选择按钮添加事件：redirect到group_manage.aspx
 
 ### 剩余任务：
-1. inspirationDetail页面UI布局（6.10下午之前）
 2. logup页面设计
-3. inspiration_upload页面设计
 4. group_manage页面设计
 5. inspirationDetail用户交互
-6. 将sourceID单独出来一个表
-7. 在user表中新增username属性
 8. 对password加密存储
 9. 文档撰写
 
