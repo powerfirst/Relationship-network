@@ -15,11 +15,12 @@
             <asp:Label ID="groud_id" runat="server" CssClass="teamNum" Text="NO.0123456"></asp:Label>
         </div>
         <h3>项目描述</h3>
-        <asp:Label ID="description" runat="server" CssClass="descriptionbox" Text="text"></asp:Label>
+        <div>
+            <asp:Label ID="description" runat="server" CssClass="descriptionbox" Text="text"></asp:Label>
+        </div>
         <asp:Label ID="urlsite" runat="server" Text="相关链接："></asp:Label>
         <asp:Label ID="mindcite" runat="server" Text="引用灵感："></asp:Label>
         <asp:Button ID="joinpro" runat="server" Text="加入项目"></asp:Button>
-        <asp:Button ID="comment" runat="server" Text="评价"></asp:Button>
     </form>
 </body>
 </html>

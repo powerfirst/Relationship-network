@@ -25,7 +25,7 @@
             <div>
                 <span>Description:</span>
                 <!--根据session.user_id决定edit_des按钮是否显示-->
-                <asp:Button ID="edit_des" runat="server" Text="编辑..." Visible="true"></asp:Button>
+                <asp:Button ID="edit_des" runat="server" Text="编辑..." Visible="false" OnClick="edit_des_Click"></asp:Button>
             </div>
             <div>
                 <!--此处为项目描述-->
@@ -33,19 +33,22 @@
             </div>
         </div>
         <div class="detailUI">
-            <asp:Button ID="button1" runat="server" Text="用此灵感召集团队..."></asp:Button>
-        </div>
-        <div class="detailUI">
+            <div>
+                <span>My Comment:</span>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:Button ID="publishComment" runat="server" Text="Publish" />
+            </div>
             <div>
                 <span>Comments:</span>
                 <asp:Button ID="showall" runat="server" Text="逐条查看" />
             </div>
-            <!--此处绑定评论内容（只要内容，别的什么都不要）-->
+            <!--此处绑定评论内容-->
             <asp:GridView ID="GridView1" runat="server" CssClass="gridviewStyle" OnRowDataBound="GridView1_RowDataBound"></asp:GridView>
             <div>
                 <asp:Button ID="copyInspiration" runat="server" Text="Copy..." />
-                <asp:Button ID="createProject" runat="server" Text="Start Project" />
+                <asp:Button ID="createProject" runat="server" Text="Team..." />
             </div>
+            <asp:Label ID="Label1" runat="server" Text="暂无评论，快来做第一个吧" Visible="false"></asp:Label>
         </div>
     </form>
 </body>

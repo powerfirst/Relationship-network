@@ -11,7 +11,7 @@
       function rectClick(event) {
         //获取相对于当前所指向对象的位置坐标
           Z = event.pageY-255;
-          document.cookie = "inspiration_id=" + (parseInt(Z / 100) + 1);
+          document.cookie = "inspiration_num=" + (parseInt(Z / 100) + 1);
       }
     </script>
 </head>

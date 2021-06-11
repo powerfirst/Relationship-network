@@ -24,11 +24,13 @@ public partial class _Default : System.Web.UI.Page
             cn.Close();
             gridview1.DataSource = ds.Tables["my inspiration"];
             gridview1.DataBind();
-
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = cn;
             cmd.CommandText = "SELECT SUM(star),FORMAT(AVG(star),1),COUNT(star) FROM evaluation WHERE evaluation.inspirationID IN (SELECT inspirationID FROM inspiration WHERE inspiration.userID = @uid); ";
             cmd.Parameters.AddWithValue("@uid", Session["userid"].ToString());
+            Session.Add("searchPar", Session["userid"].ToString());//传递查询所用变量
+            //传递查询所用命令
+            Session.Add("searchOrder", "SELECT inspiration.inspirationID,inspirationName AS 名称,typeName AS 类型, CONCAT(citeTimes,'次被引') AS 被引次数 , FORMAT(AVG(star),1),content FROM inspiration,type,evaluation WHERE inspiration.typeID = type.typeID AND inspiration.userID=@uid AND inspiration.inspirationID = evaluation.inspirationID GROUP BY inspiration.inspirationID");
             cn.Open();
             MySqlDataReader rd = cmd.ExecuteReader();
             try
@@ -36,7 +38,6 @@ public partial class _Default : System.Web.UI.Page
                 rd.Read();
                 averagestar.Text = rd.GetString(1);
                 totalstar.Text = rd.GetString(0);
-                projecttotal.Text = rd.GetString(2);
             }
             catch {
                 averagestar.Text = "0";
@@ -44,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
                 projecttotal.Text = "0";
             }
             cn.Close();
-            cmd.CommandText = "SELECT COUNT(partnerID) FROM partner WHERE partner.userID=@uid;";
+            cmd.CommandText = "SELECT COUNT(partnerID),userName FROM partner,user WHERE partner.userID=@uid and user.userID=@uid;";
             rd.Close();
             cn.Open();
             MySqlDataReader rd2 = cmd.ExecuteReader();
@@ -52,17 +53,17 @@ public partial class _Default : System.Web.UI.Page
             {
                 rd2.Read();
                 teamcount.Text = rd2.GetString(0);
+                username.Text = rd2.GetString(1);
             }
             else
             {
                 teamcount.Text = "0";
+                username.Text = "tourist";
             }
             cn.Close();
             rd2.Close();
         }
     }
-
-
 
     protected void gridview1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
